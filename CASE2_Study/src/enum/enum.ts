@@ -44,7 +44,6 @@ export enum choiceBoss {
     INVESTOR,
     SCHEDULE,
     TIMETABLE,
-    FUND,
     EXITS = 0
 }
 
@@ -70,4 +69,14 @@ export enum choiceVIP {
     LOGIN_COACH,
     LOGIN_INVESTOR,
     EXITS = 0
+}
+export enum choiceInvestor{
+    SHOW_INVESTOR = 1,
+    ADD_INVESTOR,
+    UPDATE_INVESTOR,
+    DELETE_INVESTOR,
+    CONTRACT,
+    PROFIT,
+    EXITS = 0
+
 }

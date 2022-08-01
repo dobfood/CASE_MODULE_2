@@ -2,7 +2,7 @@ import * as readline from "readline-sync";
 import {Menuu} from "../menu/menuu";
 import {Callmenu} from "../callmenu/callmenu";
 import {contractInvestors} from "../investor_contract/investor_contract";
-import {choiceDAUS} from "../enum/enum";
+import {choiceInvestor} from "../enum/enum";
 
 let menu = new Menuu()
 let main = new Callmenu()
@@ -17,27 +17,27 @@ export class main_Investor {
             menu.menuInvestorManager()
             choice = +readline.question('Please enter : ');
             switch (choice) {
-                case choiceDAUS.SHOW_LIST:
+                case choiceInvestor.SHOW_INVESTOR:
                     main.showInvestor();
                     break;
-                case choiceDAUS.ADD_LIST:
+                case choiceInvestor.ADD_INVESTOR:
                     main.addInvestor();
                     break;
-                case choiceDAUS.UPDATE_LIST:
+                case choiceInvestor.UPDATE_INVESTOR:
                     main.updateInvestor();
                     break;
-                case choiceDAUS.DELETE_LIST:
+                case choiceInvestor.DELETE_INVESTOR:
                     main.deleteInvestor();
                     break;
-                case 5:
+                case choiceInvestor.CONTRACT:
                     contractsInvestors.contractInvestor()
                     break;
-                case 6 :
-                    console.log('Loi nhuan cua nha dau tu ');
+                case choiceInvestor.PROFIT:
+                    main.showAnnualProfit()
                     break;
-                case choiceDAUS.EXITS:
+                case choiceInvestor.EXITS:
                     break;
             }
-        } while (choice != choiceDAUS.EXITS)
+        } while (choice != choiceInvestor.EXITS)
     }
 }

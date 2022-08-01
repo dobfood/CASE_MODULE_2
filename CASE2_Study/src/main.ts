@@ -19,5 +19,4 @@ do {
         case choice.EXITS:
             break;
     }
-
 } while (loginMenu != choice.EXITS)

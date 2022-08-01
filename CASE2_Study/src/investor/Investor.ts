@@ -1,24 +1,20 @@
-export class Investor{
+export class Investor {
 
-    private _name:string;
-    private _id:number;
-    private _share:number;
-    private _investmentamount:number;
-    private _profit:string;
-
+     _name: string;
+    _id: number;
+    private _share: number;
+     _investmentamount: number;
 
     constructor(name: string,
                 id: number,
                 share: number,
                 investmentamount: number,
-                profit: string,
-                ) {
+    ) {
 
         this._name = name;
         this._id = id;
         this._share = share;
         this._investmentamount = investmentamount;
-        this._profit = profit;
 
 
     }
@@ -54,17 +50,5 @@ export class Investor{
     set investmentamount(value: number) {
         this._investmentamount = value;
     }
-
-    get profit(): string {
-        return this._profit;
-    }
-
-    set profit(value: string) {
-        this._profit = value;
-    }
-
-
-
-
 }
 

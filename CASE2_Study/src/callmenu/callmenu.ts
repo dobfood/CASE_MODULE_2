@@ -7,18 +7,20 @@ import {Investor} from "../investor/Investor";
 import {ContractCoach} from "../contract/contrach_coach";
 import {ContractInvestor} from "../contract/contract_investor";
 import {Week} from "../wooking_week/Workingweek";
+import {choice} from "../enum/enum";
+
 let input = new Input()
 let manager = new Manager()
-let player1 = new FootballPlayer("ngoc",20,150,56,20,"Indonesia",2,1000)
-let player2 = new FootballPlayer("Thao",40,160,70,35,"Thailand",5,500)
-let player3 = new FootballPlayer("Tan",24,170,60,66,"Viet nam",77,1500)
-let player4 = new FootballPlayer("Tuyen",49,180,20,88,"Brazil",99,1200)
-let coach = new Coach("DragonDown",21,"4 Years")
-let investor = new Investor("CoDeGym",8888,2,1000000,"hai phan tram")
-let contractCoach1 = new ContractCoach("Thoi han 4 nam","1 thang 4000$")
-let contractInvestor1 = new ContractInvestor("Thoi han 2 nam ","4%")
-let timeTable = new Week("Luyen tap den chet","Nghi","Karaoke","Masage","Tap Gym den chet","Luyen tap sut bong bang tay ","Luyen tap bat bong bang chan")
-let schedule1 = new Week("22/10/2023 : Giao huu Inter","23/10/2023 : Trong","24/10/2023 :Giao huu MU","25/10/2023: Trong","26/10/2023:Trong","27/10/2023:Chung ket Viet Nam","28/10/2023: Trong")
+let player1 = new FootballPlayer("ngoc", 20, 150, 56, 20, "Indonesia", 2, "1000$/year")
+let player2 = new FootballPlayer("Thao", 40, 160, 70, 35, "Thailand", 5, "500$/year")
+let player3 = new FootballPlayer("Tan", 24, 170, 60, 66, "Viet nam", 77, "1500$/year")
+let player4 = new FootballPlayer("Tuyen", 49, 180, 20, 88, "Brazil", 99, "1200/year")
+let coach = new Coach("DragonDown", 21, "4 Years")
+let investor = new Investor("CoDeGym", 8888, 30, 10000000)
+let contractCoach1 = new ContractCoach("Thoi han 4 nam", " 12000$/year")
+let contractInvestor1 = new ContractInvestor("Thoi han 2 nam ", 20, investor)
+let timeTable = new Week("Luyen tap den chet", "Nghi", "Karaoke", "Masage", "Tap Gym den chet", "Luyen tap sut bong bang tay ", "Luyen tap bat bong bang chan")
+let schedule1 = new Week("22/10/2023 : Giao huu Inter", "23/10/2023 : Trong", "24/10/2023 :Giao huu MU", "25/10/2023: Trong", "26/10/2023:Trong", "27/10/2023:Chung ket Viet Nam", "28/10/2023: Trong")
 manager.addNewPlayer(player1)
 manager.addNewPlayer(player2)
 manager.addNewPlayer(player3)
@@ -29,12 +31,14 @@ manager.addContractCoach(contractCoach1)
 manager.addContractInvestor(contractInvestor1)
 manager.addNewTimeTable(timeTable)
 manager.addNewSchedule(schedule1)
+
 export class Callmenu {
     showPlayer() {
         console.log('-- Thong Tin Cau thu --')
         let player = manager.showAllPlayers()
         console.table(player)
     }
+
     addPlayer() {
         console.log('Them cau thu moi ')
         let player = input.inputPlayer()
@@ -156,12 +160,12 @@ export class Callmenu {
         console.table(player)
     }
 
-    showTimetable(){
+    showTimetable() {
         let coach = manager.showTimeTable()
         console.table(coach)
     }
 
-    addTimetable(){
+    addTimetable() {
         console.log('Them lich lam viec ')
         let player = input.inputWeek()
         manager.addNewTimeTable(player)
@@ -227,7 +231,7 @@ export class Callmenu {
         console.log('Thay doi lich lam viec  ')
         let index = +readline.question('Nhap tuan muon thay doi  : ')
         let coach = input.inputContractCoach()
-        manager.updateContractCoach(index,coach)
+        manager.updateContractCoach(index, coach)
     }
 
     showCoach() {
@@ -258,7 +262,19 @@ export class Callmenu {
     showContractInvestor() {
         console.log('--Thoi han hop dong voi nha dau tu--')
         let contract = manager.showContractsInvestor()
-        console.table(contract)
+        let data;
+        let container = [];
+        for (let i = 0; i < contract.length; i++) {
+            data ={
+                time_Contract :contract[i]._contractInvestor,
+                annual_Profit: contract[i]._annualprofit,
+                name_Investor:contract[i].Investor._name,
+                ID_contract : contract[i].Investor._id,
+                invest : contract[i].Investor._investmentamount,
+            }
+            container.push(data);
+        }
+        console.table(container)
     }
 
     addContractInvestor() {
@@ -304,11 +320,10 @@ export class Callmenu {
         let index = +readline.question('Nhap vi tri nha dau tu muon xoa : ')
         manager.deleteInvestor(index)
     }
-    showFund(){
-        console.log('Quy Cau Lac Bo')
-        let fund= manager.allFund()
-        console.table(fund)
+    showAnnualProfit() {
+        let ID = +readline.question('Nhap ID cua nha dua tu : ')
+        let annual = manager.annualProfit(ID)
+        console.log(`nha dau tu co ID :${ID}. Co so tien lai hang nam la :${annual} `)
     }
-
 
 }

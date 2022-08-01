@@ -10,10 +10,19 @@ function Investor() {
         choice = +readline.question('Please enter : ');
         switch (choice) {
             case 1:
-                main.showPlayer()
+                main.showPlayer();
                 break;
             case 2:
-                main.showCoach()
+                main.showCoach();
+                break;
+            case 3:
+                main.showAnnualProfit();
+                break;
+            case 4:
+                main.showContractInvestor();
+                break;
+            case 5:
+                main.showSchedule();
                 break;
             case 0:
                 break;

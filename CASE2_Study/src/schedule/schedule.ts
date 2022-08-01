@@ -19,7 +19,7 @@ export class schedule{
                     main.addSchedule()
                     break;
                 case choiceDAUS.UPDATE_LIST:
-                    main.updateCoach()
+                    main.updateSchedule()
                     break;
                 case choiceDAUS.DELETE_LIST:
                     main.deleteSchedule()

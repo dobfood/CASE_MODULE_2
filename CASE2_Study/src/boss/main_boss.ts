@@ -14,7 +14,6 @@ let coach = new main_coach()
 let investor = new main_Investor()
 let schedules = new schedule()
 let timeTables = new timetable()
-let main = new Callmenu()
 export class boss{
      Boss() {
         let choice
@@ -36,9 +35,6 @@ export class boss{
                     break;
                 case choiceBoss.TIMETABLE:
                     timeTables.timeTable()
-                    break;
-                case choiceBoss.FUND:
-                    main.showFund()
                     break;
                 case choiceBoss.EXITS:
                     break

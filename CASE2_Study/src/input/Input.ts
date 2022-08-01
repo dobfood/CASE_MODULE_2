@@ -15,7 +15,7 @@ export class Input {
         let clothersnumber = +readline.question('Nhap so ao cau thU : ');
         let nation = readline.question('Nhap quoc tich cau thu cau thu :');
         let goals = +readline.question('Nhap so ban thang cau thu da ghi duoc : ');
-        let salary = +readline.question('Nhap luong cua cau thu ');
+        let salary = readline.question('Nhap luong cua cau thu ');
         return new FootballPlayer(name, age, height, weight, clothersnumber, nation, goals, salary)
     }
 
@@ -31,8 +31,7 @@ export class Input {
         let id = +readline.question('Nhap id cua nha dau tu : ')
         let share = +readline.question('Nhap co phan cua nha dau tu : ');
         let investmentamount = +readline.question('Nhap so tien dau tu  : ');
-        let profit = readline.question('Nhap phan tram lai suat cua nha dau tu : ');
-        return new Investor(name, id, share, investmentamount, profit)
+        return new Investor(name, id, share, investmentamount)
 
     }
 
@@ -55,7 +54,8 @@ export class Input {
 
     inputContracInvestor(): ContractInvestor {
         let contracts = readline.question('Nhap hop dong voi nha dau tu : ');
-        let annual = readline.question('Nhap phan tram lai hang nam voi nha dau tu : ')
-        return new ContractInvestor(contracts, annual)
+        let annual = +readline.question('Nhap phan tram lai hang nam voi nha dau tu : ')
+        let Investor = this.inputInvestor()
+        return new ContractInvestor(contracts, annual,Investor)
     }
 }

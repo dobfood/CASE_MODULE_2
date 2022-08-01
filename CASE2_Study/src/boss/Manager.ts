@@ -4,33 +4,36 @@ import {FootballPlayer} from "../football_player/FootballPlayer";
 import {Investor} from "../investor/Investor";
 import {ContractInvestor} from "../contract/contract_investor";
 import {ContractCoach} from "../contract/contrach_coach";
-import {Input} from "../input/Input";
 
-export class Manager{
-     static managerplayer:FootballPlayer[]=[];
-    private static managercalendar:Week[]=[];
-    private static managercoach:Coach[]=[];
-    private static managerinvestors:Investor[]=[];
-    private static managercontractcoach:ContractCoach[]=[];
-    private static managercontractinvestor:ContractInvestor[]=[];
-    public timetableweek:any[]=[]
+export class Manager {
+    static managerplayer: FootballPlayer[] = [];
+    private static managercalendar: Week[] = [];
+    private static managercoach: Coach[] = [];
+    private static managerinvestors: Investor[] = [];
+    private static managercontractcoach: ContractCoach[] = [];
+    private static managercontractinvestor: ContractInvestor[] = [];
+    public timetableweek: any[] = []
+
     constructor() {
 
     }
-    static fund : number=0;
 
-    showAllPlayers():FootballPlayer[]{
+    showAllPlayers(): FootballPlayer[] {
         return Manager.managerplayer
     }
+
     addNewPlayer(player: FootballPlayer) {
         Manager.managerplayer.push(player);
     }
-    updatePlayer(value: number,player:FootballPlayer): void {
+
+    updatePlayer(value: number, player: FootballPlayer): void {
         Manager.managerplayer[value] = player;
     }
+
     deletePlayer(value: number): void {
-        Manager.managerplayer.splice(value,1);
+        Manager.managerplayer.splice(value, 1);
     }
+
     findPlayerName(name: string) {
         let index = -1
         let flag: number = 0
@@ -41,9 +44,10 @@ export class Manager{
             }
         })
         if (index == -1) {
-            return 'Khong co cau thu can tim'
+            return
         }
     }
+
     findPlayerAge(age: number) {
         let index = -1
         let flag: number = 0
@@ -54,9 +58,10 @@ export class Manager{
             }
         })
         if (index == -1) {
-            return 'Khong co cau thu can tim'
+            return
         }
     }
+
     findPlayerHeight(height: number) {
         let index = -1
         let flag: number = 0
@@ -67,9 +72,10 @@ export class Manager{
             }
         })
         if (index == -1) {
-            return 'Khong co cau thu can tim'
+            return
         }
     }
+
     findPlayerWeight(weight: number) {
         let index = -1
         let flag: number = 0
@@ -80,9 +86,10 @@ export class Manager{
             }
         })
         if (index == -1) {
-            return 'Khong co cau thu can tim'
+            return
         }
     }
+
     findPlayerClothersNumber(clothersnumber: number) {
         let index = -1
         let flag: number = 0
@@ -93,9 +100,10 @@ export class Manager{
             }
         })
         if (index == -1) {
-            return 'Khong co cau thu can tim'
+            return
         }
     }
+
     findPlayerNations(nations: string) {
         let index = -1
         let flag: number = 0
@@ -106,15 +114,17 @@ export class Manager{
             }
         })
         if (index == -1) {
-            return 'Khong co cau thu can tim'
+            return
         }
     }
+
     swap(j: number) {
         let temp = Manager.managerplayer[j]
         Manager.managerplayer[j] = Manager.managerplayer[j + 1]
         Manager.managerplayer[j + 1] = temp
     }
-    sortPlayersAgeAscending(){
+
+    sortPlayersAgeAscending() {
         let n = Manager.managerplayer.length
         for (let i = 1; i < n; i++) {
             let key = Manager.managerplayer[i].age
@@ -128,7 +138,8 @@ export class Manager{
         }
         return Manager.managerplayer
     }
-    sortPlayersAgeDecrease(){
+
+    sortPlayersAgeDecrease() {
         let n = Manager.managerplayer.length
         for (let i = 1; i < n; i++) {
             let key = Manager.managerplayer[i].age
@@ -142,7 +153,8 @@ export class Manager{
         }
         return Manager.managerplayer
     }
-    sortPlayersGoalsAscending(){
+
+    sortPlayersGoalsAscending() {
         let n = Manager.managerplayer.length
         for (let i = 1; i < n; i++) {
             let key = Manager.managerplayer[i].numbergoals
@@ -156,7 +168,8 @@ export class Manager{
         }
         return Manager.managerplayer
     }
-    sortPlayersGoalsDecrease(){
+
+    sortPlayersGoalsDecrease() {
         let n = Manager.managerplayer.length
         for (let i = 1; i < n; i++) {
             let key = Manager.managerplayer[i].numbergoals
@@ -170,7 +183,8 @@ export class Manager{
         }
         return Manager.managerplayer
     }
-    sortPlayersWeightAscending(){
+
+    sortPlayersWeightAscending() {
         let n = Manager.managerplayer.length
         for (let i = 1; i < n; i++) {
             let key = Manager.managerplayer[i].weight
@@ -184,7 +198,8 @@ export class Manager{
         }
         return Manager.managerplayer
     }
-    sortPlayersWeightDecrease(){
+
+    sortPlayersWeightDecrease() {
         let n = Manager.managerplayer.length
         for (let i = 1; i < n; i++) {
             let key = Manager.managerplayer[i].weight
@@ -198,12 +213,13 @@ export class Manager{
         }
         return Manager.managerplayer
     }
-    sortPlayersHeightAscending(){
+
+    sortPlayersHeightAscending() {
         let n = Manager.managerplayer.length
         for (let i = 1; i < n; i++) {
             let key = Manager.managerplayer[i].height
             let j = i - 1
-            while (j >= 0 && Manager.managerplayer[j].height> key) {
+            while (j >= 0 && Manager.managerplayer[j].height > key) {
 
                 this.swap(j)
                 j = j - 1;
@@ -212,7 +228,8 @@ export class Manager{
         }
         return Manager.managerplayer
     }
-    sortPlayersHeightDecrease(){
+
+    sortPlayersHeightDecrease() {
         let n = Manager.managerplayer.length
         for (let i = 1; i < n; i++) {
             let key = Manager.managerplayer[i].height
@@ -226,7 +243,8 @@ export class Manager{
         }
         return Manager.managerplayer
     }
-    sortPlayersSalaryAscending(){
+
+    sortPlayersSalaryAscending() {
         let n = Manager.managerplayer.length
         for (let i = 1; i < n; i++) {
             let key = Manager.managerplayer[i].salary
@@ -240,7 +258,8 @@ export class Manager{
         }
         return Manager.managerplayer
     }
-    sortPlayersSalaryDecrease(){
+
+    sortPlayersSalaryDecrease() {
         let n = Manager.managerplayer.length
         for (let i = 1; i < n; i++) {
             let key = Manager.managerplayer[i].salary
@@ -254,84 +273,117 @@ export class Manager{
         }
         return Manager.managerplayer
     }
-    addNewTimeTable(timetable:Week):void{
-            this.timetableweek.push(timetable)
+
+    addNewTimeTable(timetable: Week): void {
+        this.timetableweek.push(timetable)
     }
-    updateTimeTable(value:number,timetable:Week){
-        Manager.managercalendar[value]=timetable
+
+    updateTimeTable(value: number, timetable: Week) {
+        Manager.managercalendar[value] = timetable
     }
-    deleteTimeTable(value:number):void{
-        Manager.managercalendar.splice(value,1)
+
+    deleteTimeTable(value: number): void {
+        Manager.managercalendar.splice(value, 1)
     }
-    showTimeTable(){
+
+    showTimeTable() {
 
         return this.timetableweek
     }
-    addNewSchedule(schedule:Week):void{
+
+    addNewSchedule(schedule: Week): void {
         Manager.managercalendar.push(schedule)
     }
-    updateSchedule(value:number,schedule:Week){
-        Manager.managercalendar[value]=schedule
-    }
-    deleteSchedule(value:number):void{
-        Manager.managercalendar.splice(value,1)
-    }
-    showSchedule(){
 
+    updateSchedule(value: number, schedule: Week) {
+        Manager.managercalendar[value] = schedule
+    }
+
+    deleteSchedule(value: number): void {
+        Manager.managercalendar.splice(value, 1)
+    }
+
+    showSchedule() {
         return Manager.managercalendar
     }
-    addCoach(coach: Coach):void{
+
+    addCoach(coach: Coach): void {
         Manager.managercoach.push(coach);
     }
-    updateCoach(value:number,coach: Coach):void{
-        Manager.managercoach[value]=coach
+
+    updateCoach(value: number, coach: Coach): void {
+        Manager.managercoach[value] = coach
     }
-    deleteCoach(index:number):void{
-        Manager.managercoach.splice(index,1)
+
+    deleteCoach(index: number): void {
+        Manager.managercoach.splice(index, 1)
     }
-    showCoach():Coach[]{
+
+    showCoach(): Coach[] {
         return Manager.managercoach
     }
-    showContractsCoach():ContractCoach[]{
+
+    showContractsCoach(): ContractCoach[] {
         return Manager.managercontractcoach
     }
-    addContractCoach(contractcoach:ContractCoach):void{
+
+    addContractCoach(contractcoach: ContractCoach): void {
         Manager.managercontractcoach.push(contractcoach);
     }
-    updateContractCoach(index:number,contractcoach:ContractCoach):void{
-        Manager.managercontractcoach[index]=contractcoach
+
+    updateContractCoach(index: number, contractcoach: ContractCoach): void {
+        Manager.managercontractcoach[index] = contractcoach
     }
-    deleteContractCoach(index:number):void{
-        Manager.managercontractcoach.splice(index,1)
+
+    deleteContractCoach(index: number): void {
+        Manager.managercontractcoach.splice(index, 1)
     }
-    showInvestor():Investor[]{
+
+    showInvestor(): Investor[] {
         return Manager.managerinvestors
     }
-    addInvestor(investor:Investor):void{
+
+    addInvestor(investor: Investor): void {
         Manager.managerinvestors.push(investor)
     }
-    updateInvestor(index:number,investor:Investor):void{
-        Manager.managerinvestors[index]=investor
+
+    updateInvestor(index: number, investor: Investor): void {
+        Manager.managerinvestors[index] = investor
     }
-    deleteInvestor(index:number):void{
-        Manager.managerinvestors.splice(index,1)
+
+    deleteInvestor(index: number): void {
+        Manager.managerinvestors.splice(index, 1)
     }
-    showContractsInvestor():ContractInvestor[]{
+
+    showContractsInvestor(): ContractInvestor[] {
         return Manager.managercontractinvestor
     }
-    addContractInvestor(contractinvestor:ContractInvestor):void{
+
+    addContractInvestor(contractinvestor: ContractInvestor): void {
         Manager.managercontractinvestor.push(contractinvestor)
     }
-    updateContractInvestor(index:number,contractinvestor:ContractInvestor):void{
-        Manager.managercontractinvestor[index]=contractinvestor
-    }
-    deleteContractInvestor(index:number):void{
-        Manager.managercontractinvestor.splice(index,1)
-    }
-    allFund(){
-      let inputMenu = new Input()
-       return Manager.fund =  inputMenu.inputInvestor().investmentamount
+
+    updateContractInvestor(index: number, contractinvestor: ContractInvestor): void {
+        Manager.managercontractinvestor[index] = contractinvestor
     }
 
+    deleteContractInvestor(index: number): void {
+        Manager.managercontractinvestor.splice(index, 1)
+    }
 
+    annualProfit(id: number): number {
+        let value = Manager.managercontractinvestor.findIndex((item) => {
+            return (item._investor._id == id)
+        })
+        if (value == -1) {
+            return -1
+        } else {
+            let profit = 1
+            // console.log(Manager.managercontractinvestor[value]._annualprofit);
+            console.table(Manager.managercontractinvestor[value])
+            // console.log(value)
+            profit = (((Manager.managercontractinvestor[value]._investor.investmentamount) * (Manager.managercontractinvestor[value].annualprofit)) / 100)
+            return profit
+        }
+    }
 }

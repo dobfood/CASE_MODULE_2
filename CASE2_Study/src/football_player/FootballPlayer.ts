@@ -6,7 +6,7 @@ export class FootballPlayer {
     private _clothersnumber: number
     private _nation: string;
     private _numbergoals: number
-    private _salary: number
+    private _salary: string
 
     constructor(name: string,
                 age: number,
@@ -15,7 +15,7 @@ export class FootballPlayer {
                 clothersnumber: number,
                 nation: string,
                 numbergoals: number,
-                salary: number) {
+                salary: string) {
         this._name = name;
         this._age = age;
         this._height = height;
@@ -82,11 +82,11 @@ export class FootballPlayer {
         this._numbergoals = value;
     }
 
-    get salary(): number {
+    get salary(): string {
         return this._salary;
     }
 
-    set salary(value: number) {
+    set salary(value: string) {
         this._salary = value;
     }
 }
